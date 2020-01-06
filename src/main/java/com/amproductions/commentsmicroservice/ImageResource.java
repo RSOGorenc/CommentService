@@ -29,6 +29,7 @@ public class ImageResource {
         return  Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
     }
     @POST
+
     public Response postComment(CommentEntry comment) {
         try {
 
