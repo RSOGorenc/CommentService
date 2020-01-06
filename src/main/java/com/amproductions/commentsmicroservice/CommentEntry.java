@@ -21,6 +21,7 @@ public class CommentEntry {
         return _id;
     }
 
+
     public String getComment(){
         return comment;
     }
