@@ -22,6 +22,7 @@ public class CommentEntry {
     }
 
 
+
     public String getComment(){
         return comment;
     }
