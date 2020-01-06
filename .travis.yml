@@ -1,0 +1,13 @@
+sudo: required
+
+language: java
+
+services:
+  - docker
+
+script:
+  - docker build -t comments-microservice .
+after_success:
+  - docker tag get-microservice "$DOCKER_HUB_USERNAME"/comments-microservice:latest
+  - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+  - docker push "$DOCKER_HUB_USERNAME"/comments-microservice:latest
