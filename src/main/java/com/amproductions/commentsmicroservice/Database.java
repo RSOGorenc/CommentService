@@ -24,7 +24,6 @@ class Database {
         try {
 
             Document document = collection.find(eq("_id", new ObjectId(objectID))).first();
-
             Document res = null;
             if(document != null){
                 return document;
