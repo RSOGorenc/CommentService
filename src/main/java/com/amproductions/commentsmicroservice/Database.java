@@ -35,6 +35,7 @@ class Database {
         }
     }
 
+
     @SuppressWarnings("unchecked")
     static boolean AddComment(CommentEntry comment){
         try {
