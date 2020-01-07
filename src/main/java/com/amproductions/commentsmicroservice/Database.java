@@ -52,4 +52,20 @@ class Database {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
+    static boolean DeleteComment(CommentEntry comment){
+        try {
+
+            collection.updateOne(
+                    new BasicDBObject("_id", new ObjectId(comment.get_id())),
+                    new BasicDBObject("$pull", new BasicDBObject("comments", comment.getComment()))
+            );
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
 }

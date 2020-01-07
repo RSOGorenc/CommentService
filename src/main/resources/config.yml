@@ -1,7 +1,25 @@
 kumuluzee:
-  name: comments-service
+  name: comments
+  env:
+    name: dev
   version: 1.0.0
   server:
     base-url: http://localhost:8082
     http:
       port: 8082
+
+  metrics:
+    servlet:
+      enabled: true
+      mapping: /comments-metrics
+    web-instrumentation:
+      - name: comments-endpoint
+        url-pattern: /v1/comments/*
+
+config-properties:
+  test: true
+
+
+
+
+
