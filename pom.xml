@@ -18,8 +18,15 @@
 
         <kumuluzee.version>3.5.0</kumuluzee.version>
         <kumuluzee-config.version>1.2.0</kumuluzee-config.version>
-        <kumuluzee-metrics.version>2.0.1</kumuluzee-metrics.version>
+        <kumuluzee-health.version>2.1.0</kumuluzee-health.version>
         <kumuluzee-config-mp.version>1.3.0</kumuluzee-config-mp.version>
+        <kumuluzee-metrics.version>2.0.1</kumuluzee-metrics.version>
+        <kumuluzee-logs.version>1.3.1</kumuluzee-logs.version>
+        <kumuluzee-discovery.version>1.1.1</kumuluzee-discovery.version>
+        <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
+
+
+
     </properties>
 
     <dependencyManagement>
@@ -79,6 +86,23 @@
             <artifactId>kumuluzee-config-mp</artifactId>
             <version>${kumuluzee-config-mp.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-bom</artifactId>
+            <version>${kumuluzee.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+
+        <dependency>
+            <artifactId>kumuluzee-logs-log4j2</artifactId>
+            <groupId>com.kumuluz.ee.logs</groupId>
+            <version>${kumuluzee-logs.version}</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

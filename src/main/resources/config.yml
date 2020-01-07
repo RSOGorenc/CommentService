@@ -15,11 +15,30 @@ kumuluzee:
     web-instrumentation:
       - name: comments-endpoint
         url-pattern: /v1/comments/*
+logs:
+  config-file: '<?xml version="1.0" encoding="UTF-8"?>
+                          <Configuration name="comments">
+                              <Appenders>
+                                  <Console name="console" target="SYSTEM_OUT">
+                                      <PatternLayout pattern="%d %p %marker %m %X %ex %n"/>
+                                  </Console>
+                                   <Socket name="logstash" host="1f72ac0c-f042-4e9e-964f-8fe7f4838a59-ls.logit.io"
+                                  port="17271" protocol="tcp">
+                                      <JSONLayout complete="false" compact="true" eventEol="true" charset="UTF-8" properties="true"/>
+                                  </Socket>
+                              </Appenders>
+                              <Loggers>
+                                  <!-- Default logger -->
+                                  <Root level="all">
+                                      <AppenderRef ref="console" level="info"/>
+                                      <AppenderRef ref="logstash" level="trace"/>
+                                  </Root>
+                              </Loggers>
+                          </Configuration>'
 
-config-properties:
-  test: true
-
-
+configuration-properties:
+  comments:
+    enabled: true
 
 
 
