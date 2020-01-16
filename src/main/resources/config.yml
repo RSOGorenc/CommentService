@@ -10,7 +10,7 @@ kumuluzee:
   health:
     checks:
       mongo-health-check:
-        connection-url: mongodb://rso-mongo-service:27017/local?serverSelectionTimeoutMS=2000
+        connection-url: mongodb://35.240.42.72:27017/local?serverSelectionTimeoutMS=2000
 
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
