@@ -7,18 +7,18 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class CommentEntry {
-    private String _id;
+    private String imageId;
     private String comment;
 
     @JsonbCreator
-    public CommentEntry(@JsonbProperty("_id")String _id,
+    public CommentEntry(@JsonbProperty("imageId")String imageId,
                         @JsonbProperty("comment")String comment){
-        this._id = _id;
+        this.imageId = imageId;
         this.comment = comment;
     }
 
-    public String get_id(){
-        return _id;
+    public String getImageId(){
+        return imageId;
     }
 
 

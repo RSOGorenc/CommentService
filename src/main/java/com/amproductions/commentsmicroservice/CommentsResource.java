@@ -18,18 +18,18 @@ public class CommentsResource {
     private Logger log = Logger.getLogger(CommentsResource.class.getName());
 
     @GET
-    @Path("/{objectID}")
-    public Response getComments(@PathParam("objectID") String objectID) {
+    @Path("/{imageId}")
+    public Response getComments(@PathParam("imageId") String imageId) {
         try {
-            log.info("Calling getComments with objectID: " + objectID);
+            log.info("Calling getComments with imageId: " + imageId);
 
-            Object comments = Database.GetComments(objectID).get("comments");
+            Object comments = Database.GetComments(imageId).get("comments");
 
             if (comments == null) {
-                log.info("Return response status NOT FOUND on objectID: " + objectID);
+                log.info("Return response status NOT FOUND on objectID: " + imageId);
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
-            log.info("Return response status OK on objectID: " + objectID);
+            log.info("Return response status OK on objectID: " + imageId);
             return Response.status(Response.Status.OK).entity(comments).build();
 
         }

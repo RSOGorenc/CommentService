@@ -15,15 +15,15 @@ import static com.mongodb.client.model.Filters.eq;
 
 
 class Database {
-    private static MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://192.168.99.100:27017"));
+    private static MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://35.240.42.72:27017"));
     private static MongoDatabase database = mongoClient.getDatabase("imagePlatform");
     private static MongoCollection<Document> collection = database.getCollection("images");
 
     @SuppressWarnings("unchecked")
-    static Document GetComments(String objectID){
+    static Document GetComments(String imageId){
         try {
 
-            Document document = collection.find(eq("_id", new ObjectId(objectID))).first();
+            Document document = collection.find(eq("imageId", imageId)).first();
             Document res = null;
             if(document != null){
                 return document;
@@ -33,15 +33,19 @@ class Database {
             e.printStackTrace();
             return null;
         }
+
+
     }
+
 
 
     @SuppressWarnings("unchecked")
     static boolean AddComment(CommentEntry comment){
         try {
 
+
             collection.updateOne(
-                    new BasicDBObject("_id", new ObjectId(comment.get_id())),
+                    new BasicDBObject("imageId", comment.getImageId()),
                     new BasicDBObject("$push", new BasicDBObject("comments", comment.getComment()))
             );
 
@@ -57,7 +61,7 @@ class Database {
         try {
 
             collection.updateOne(
-                    new BasicDBObject("_id", new ObjectId(comment.get_id())),
+                    new BasicDBObject("imageId", comment.getImageId()),
                     new BasicDBObject("$pull", new BasicDBObject("comments", comment.getComment()))
             );
 
