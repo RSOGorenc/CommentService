@@ -72,11 +72,6 @@
             <version>3.11.2</version>
         </dependency>
         <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk-s3</artifactId>
-            <version>1.11.679</version>
-        </dependency>
-        <dependency>
             <groupId>com.kumuluz.ee.metrics</groupId>
             <artifactId>kumuluzee-metrics-core</artifactId>
             <version>${kumuluzee-metrics.version}</version>
@@ -87,19 +82,17 @@
             <version>${kumuluzee-config-mp.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-bom</artifactId>
-            <version>${kumuluzee.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-
 
         <dependency>
             <artifactId>kumuluzee-logs-log4j2</artifactId>
             <groupId>com.kumuluz.ee.logs</groupId>
             <version>${kumuluzee-logs.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee.health</groupId>
+            <artifactId>kumuluzee-health</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
 

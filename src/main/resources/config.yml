@@ -4,9 +4,13 @@ kumuluzee:
     name: dev
   version: 1.0.0
   server:
-    base-url: http://localhost:8082
+    base-url: http://localhost:8080
     http:
-      port: 8082
+      port: 8080
+  health:
+    checks:
+      mongo-health-check:
+        connection-url: mongodb://rso-mongo-service:27017/local?serverSelectionTimeoutMS=2000
 
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
