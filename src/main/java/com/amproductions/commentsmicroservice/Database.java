@@ -15,7 +15,7 @@ import static com.mongodb.client.model.Filters.eq;
 
 
 class Database {
-    private static MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://35.240.42.72:27017"));
+    private static MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://rso-mongo-service:27017"));
     private static MongoDatabase database = mongoClient.getDatabase("imagePlatform");
     private static MongoCollection<Document> collection = database.getCollection("images");
 
